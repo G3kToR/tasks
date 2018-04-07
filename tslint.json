@@ -1,0 +1,26 @@
+{
+    "rules": {
+        "max-line-length": {
+            "options": [100]
+        },
+        "prefer-const": true, // const вместо let и var
+        "no-inferred-empty-object-type": true, // ??
+        "trailing-comma": [ // запятая
+        true,
+        {
+          "multiline": {
+            "objects": "always",
+            "arrays": "always",
+            "functions": "never",
+            "typeLiterals": "ignore"
+          },
+          "esSpecCompliant": true
+        }
+        ],
+        //использовать одинарные кавычки для строковых констант
+        "quotemark": [true, "single"],
+        //обязательное использование точки с запятой (как в C# или Java)
+        "semicolon": [true]
+        //другие правила...
+    }
+}

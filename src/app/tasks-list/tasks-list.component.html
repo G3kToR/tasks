@@ -1,0 +1,36 @@
+<div class="row s6">
+    <p>
+        <label>Сортировка по</label>
+        <select class="browser-default" [(ngModel)]="sortType">
+            <option value="1" selected>дате</option>
+            <option value="2">статусу</option>
+            <option value="3">приоритету</option>
+        </select>
+        <label class="right-align">
+            <input type="checkbox" [(ngModel)]="sortReverse">
+            <span>Обратный порядок</span>
+        </label>
+    </p>
+</div>
+
+<div class="row" *ngIf="connectErr">
+    <div class="col s12">
+        <div class="card red darken-1">
+            <div class="card-content white-text">
+                <span class="card-title">Ошибка соединения.</span>
+                <p>Обновите страницу и попробуйте еще раз.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="progress" *ngIf="preload">
+    <div class="indeterminate"></div>
+</div>
+<div *ngIf="!connectErr && !preload">
+    <h5 *ngIf="tasks.length == 0">Задач пока нет :(</h5>
+    <ul class="task-list collection" *ngIf="tasks.length > 0">
+        <li class="collection-item avatar" *ngFor="let task of tasks | sortTasks:sortType:sortReverse">
+            <app-task [task]="task"></app-task>
+        </li>
+    </ul>
+</div>

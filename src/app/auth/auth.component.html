@@ -1,0 +1,34 @@
+<div class="auth-form row">
+    <form [formGroup]="authForm" novalidate (ngSubmit)="submit()">
+        <div class="row" *ngIf="connectErr">
+            <div class="col s12">
+                <div class="card red darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Ошибка соединения.</span>
+                        <p>Обновите страницу и попробуйте еще раз.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="input-field col s12">
+            <input id="last_name" type="text" formControlName="userLogin">
+            <label for="last_name">Логин</label>
+            <span class="helper-text" data-error="wrong" data-success="right"
+                  *ngIf="authForm.controls['userLogin'].invalid && authForm.controls['userLogin'].touched">
+                Имя должно состоять из латинских букв и цифр. Длинна от 4 до 12 символов.
+            </span>
+        </div>
+        <div class="input-field col s12">
+            <input id="password" type="password" formControlName="userPass">
+            <label for="password">Пароль</label>
+            <span class="helper-text" data-error="wrong" data-success="right"
+                  *ngIf="authForm.controls['userPass'].invalid && authForm.controls['userPass'].touched">
+                Пароль должен содержать строчные и прописные латинские буквы, цифры, спецсимволы. Длинна от 6 до 20 символов.
+            </span>
+        </div>
+        <div class="input-field col s6" >
+            <button class="waves-effect waves-light btn-small"
+               [disabled]="authForm.invalid">Войти</button>
+        </div>
+    </form>
+</div>

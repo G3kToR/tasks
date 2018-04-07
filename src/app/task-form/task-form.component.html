@@ -1,0 +1,90 @@
+<form class="task-form col" [formGroup]="taskForm" novalidate (ngSubmit)="submitTask()">
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="taskName" type="text" formControlName="taskName">
+            <label class="active" for="taskName">Название</label>
+        </div>
+        <div class="input-field col s12" *ngIf="fullMode">
+            <input id="taskDate" type="text" [value]="task.getDate()" disabled>
+            <label class="active" for="taskDate">Дата:</label>
+        </div>
+        <div class="input-field col s12" *ngIf="!fullMode">
+            <textarea id="taskDesk" class="materialize-textarea" formControlName="taskDesk"></textarea>
+            <label class="active" for="taskDesk">Описание</label>
+        </div>
+        <div class="col s12" style="color: #9F9F9F" *ngIf="fullMode">{{task.desk}}</div>
+    </div>
+    <div class="row">
+            <div class="input-field col s4">
+                <div formArrayName="taskPlannedTime">
+                    <h6>Планируемое время</h6>
+                    <div class="input-field col s6">
+                        <input id="plannedTime_h" type="text" formControlName="0">
+                        <label class="active" for="plannedTime_h">Часы</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="plannedTime_m" type="text" formControlName="1">
+                        <label class="active" for="plannedTime_m">Минуты</label>
+                    </div>
+                </div>
+                <div formArrayName="taskElapsedTime">
+                    <h6>Потраченное время</h6>
+                    <div class="input-field col s6">
+                        <input id="elapsedTime_h" type="text" formControlName="0">
+                        <label class="active" for="elapsedTime_h">Часы</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="elapsedTime_m" type="text" formControlName="1">
+                        <label class="active" for="elapsedTime_m">Минуты</label>
+                    </div>
+                </div>
+            </div>
+            <div class="input-field col s4">
+                <h6>Статус</h6>
+                <p>
+                    <label>
+                        <input name="taskStatus" type="radio" value="1" formControlName="taskStatus">
+                        <span>в ожидании</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="taskStatus" type="radio" value="2" formControlName="taskStatus">
+                        <span>в работе</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="taskStatus" type="radio" value="3" formControlName="taskStatus">
+                        <span>завершен</span>
+                    </label>
+                </p>
+            </div>
+            <div class="input-field col s4">
+                <h6>Приоритет</h6>
+                <p>
+                    <label>
+                        <input name="taskPriority" type="radio" value="3" formControlName="taskPriority">
+                        <span>Низкий</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="taskPriority" type="radio" value="2" formControlName="taskPriority">
+                        <span>Средний</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="taskPriority" type="radio" value="1" formControlName="taskPriority">
+                        <span>Высокий</span>
+                    </label>
+                </p>
+            </div>
+     </div>
+    <p class="center-align">
+        <a class="waves-effect waves-teal btn-flat"
+        routerLink="">Назад</a>
+        <button class="waves-effect waves-light btn" [disabled]="taskForm.invalid">Сохранить</button>
+    </p>
+</form>

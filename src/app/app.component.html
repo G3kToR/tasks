@@ -1,0 +1,4 @@
+<div class="wrapper">
+    <app-auth *ngIf="!auth" (onLogin)="auth = true"></app-auth>
+    <router-outlet *ngIf="auth"></router-outlet>
+</div>

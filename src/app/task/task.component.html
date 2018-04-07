@@ -1,0 +1,9 @@
+<div>
+    <i class="material-icons circle" [app-priority]="task.priority"></i>
+    <a [routerLink]="['task', task.id]" class="title"> {{ task.name }} </a>
+    <p>{{ task.desk }}</p>
+    <ul class="secondary-content">
+        <li>Дата: {{task.getDate()}}</li>
+        <li>Статус: {{getStatus()}}</li>
+    </ul>
+</div>

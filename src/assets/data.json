@@ -1,0 +1,7 @@
+{
+  "1": [
+    {"name":"Таска 1","desk":"Тест описание","date":1522919271000,"priority":1,"plannedTime":2972,"elapsedTime":1523,"status":1,"id":1},{"name":"Таска 2","desk":"Тест описание2","date":1522919273000,"priority":2,"plannedTime":1728,"elapsedTime":1523,"status":2,"id":2},{"name":"Таска 3","desk":"Тест описание3","date":1522919374000,"priority":3,"plannedTime":1522,"elapsedTime":1513,"status":3,"id":3},{"name":"Таска 4","desk":"Тест описание3","date":1522919461000,"priority":1,"plannedTime":1522,"elapsedTime":1513,"status":2,"id":4},{"name":"Таска 5","desk":"Тест описание3","date":1522919571000,"priority":2,"plannedTime":1522,"elapsedTime":1513,"status":3,"id":5},{"name":"Таска 6","desk":"Тест описание3","date":1522919681000,"priority":3,"plannedTime":1522,"elapsedTime":1513,"status":1,"id":6}],
+  "2": [
+    {"name":"Таска 1 юзера 2","desk":"Тест описание 1 юзера 2","date":1522919871000,"priority":1,"plannedTime":1172,"elapsedTime":1023,"status":1,"id":1}
+  ]
+}

@@ -1,0 +1,9 @@
+<button class="waves-effect waves-light btn"
+        (click)="taskFormDisplay = !taskFormDisplay"
+        [textContent]="(!taskFormDisplay) ? 'Добавить задачу' : 'Отмена'">
+</button>
+<app-task-form
+        *ngIf="taskFormDisplay"
+        (onSubmitTask)="taskFormDisplay = !taskFormDisplay">
+</app-task-form>
+<app-tasks-list></app-tasks-list>
