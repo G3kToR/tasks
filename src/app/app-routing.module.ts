@@ -1,21 +1,14 @@
 import { NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainPageComponent } from './pages/main-page.component';
-import { TaskPageComponent } from './pages/task-page.component';
-import { TaskResolver } from './task/task.resolver';
-import {AuthComponent} from './auth/auth.component';
-import {AuthGuard} from './auth/auth.guard';
+import { AuthGuard } from './auth/auth.guard';
+import { TaskResolver } from './tasks/task/task.resolver';
+import { TasksComponent } from './tasks/tasks.component';
+import { AuthComponent } from './auth/auth.component';
 
 
 const appRoutes: Routes = [
-    { path: '', component: MainPageComponent, canActivate: [AuthGuard] },
-    { path: 'task/:id', component: TaskPageComponent, canActivate: [AuthGuard],
-        resolve: {
-            task: TaskResolver
-        }},
-    { path: 'auth', component: AuthComponent },
-    { path: '**', redirectTo: '/' },
-
+    { path: '', component: TasksComponent, canActivate: [AuthGuard] },
+    { path: 'auth', component: AuthComponent }
 ];
 
 

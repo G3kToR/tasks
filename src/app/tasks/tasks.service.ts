@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Task } from './task';
+import { Task } from './task/task';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from './user.service';
+import { UserService } from '../shared/user.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/from';
 
 @Injectable()
-export class TaskService {
+export class TasksService {
 
     private data: Task[];
 
@@ -90,10 +90,10 @@ export class TaskService {
                 name,
                 desk,
                 Date.now(),
-                priority,
-                plannedTime,
-                elapsedTime,
-                status,
+                Number(priority),
+                Number(plannedTime),
+                Number(elapsedTime),
+                Number(status),
                 this.data.length + 1
             )
         );

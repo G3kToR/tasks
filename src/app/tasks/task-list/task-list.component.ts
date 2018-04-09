@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {Task} from 'app/task';
-import {TaskService} from '../task.service';
+
 import 'rxjs/add/operator/take';
+import {TasksService} from '../tasks.service';
+import {Task} from 'app/tasks/task/task';
 
 @Component({
-    selector: 'app-tasks-list',
-    templateUrl: 'tasks-list.component.html',
+    selector: 'app-task-list',
+    templateUrl: 'task-list.component.html',
 })
-export class TasksListComponent implements OnInit {
+export class TaskListComponent implements OnInit {
 
     public sortType = 1; // Признак сортировки (1 - дата, 2 - статус, 3 - приоритет)
     public sortReverse = false; // Порядок сортировки
@@ -16,7 +17,7 @@ export class TasksListComponent implements OnInit {
 
     public tasks: Task[] = [];
 
-    constructor(private taskService: TaskService) { }
+    constructor(private taskService: TasksService) { }
 
     ngOnInit(): void {
         this.taskService.getDataHttp()

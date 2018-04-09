@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-main-page',
-    templateUrl: 'main-page.component.html',
+    selector: 'app-tasks',
+    templateUrl: 'tasks.component.html',
 })
-export class MainPageComponent {
+export class TasksComponent {
 
     public taskFormDisplay = false; // Флаг для показа/скрытия формы добавления таска
 

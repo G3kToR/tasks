@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Task } from 'app/task';
+import { Task } from './task';
 
 /* Компонент одной задачи */
 @Component({
@@ -13,7 +13,7 @@ export class TaskComponent {
     constructor() { }
 
     getStatus(): string {
-        switch (this.task.status) {
+        switch (Number(this.task.status)) {
             case 1:
                 return 'в ожидании';
             case 2:

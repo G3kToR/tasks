@@ -1,8 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
-import {TaskService} from '../task.service';
-import {Task} from 'app/task';
+
+
 import {Router} from '@angular/router';
+import {TasksService} from '../tasks.service';
+import {Task} from 'app/tasks/task/task';
 
 @Component({
     selector: 'app-task-form',
@@ -21,7 +23,7 @@ export class TaskFormComponent implements OnInit {
     public fullMode = false;
     public taskForm: FormGroup;
 
-    constructor(private taskService: TaskService, private router: Router) { }
+    constructor(private taskService: TasksService, private router: Router) { }
 
     public submitTask(): void { // Отправляет таск в сервис
 
@@ -51,10 +53,10 @@ export class TaskFormComponent implements OnInit {
             this.taskService.addData(
                 this.taskForm.value.taskName,
                 this.taskForm.value.taskDesk,
-                Number(this.taskForm.value.taskPriority),
+                parseInt(this.taskForm.value.taskPriority, 10),
                 plannedTime,
                 elapsedTime,
-                Number(this.taskForm.value.taskStatus)
+                parseInt(this.taskForm.value.taskStatus, 10)
             );
 
             this.taskForm.reset({  // Сбрасываем форму

@@ -1,5 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Task} from '../task';
+import {Task} from 'app/tasks/task/task';
+
 
 /* Пайп сортирует список задач по дате/приоритету/статусу а также может изменять порядок */
 @Pipe({
