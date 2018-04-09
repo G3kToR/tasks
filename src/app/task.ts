@@ -15,9 +15,9 @@ export class Task {
     public getDate(): string { // Возвращает дату сообщения
         const result: Date = new Date(this.date);
         const minutes: string = (
-            (result.getMinutes() < 10) ? '0'+result.getMinutes() : result.getMinutes()
+            (result.getMinutes() < 10) ? '0' + result.getMinutes() : result.getMinutes()
         ).toString();
-        return ((result.getDate() < 10) ? '0'+result.getDate() : result.getDate())+
-            '.'+('0' + (result.getMonth() + 1))+' в '+result.getHours()+':'+minutes;
+        return ((result.getDate() < 10) ? '0' + result.getDate() : result.getDate()) +
+            '.' + ('0' + (result.getMonth() + 1)) + ' в ' + result.getHours() + ':' + minutes;
     }
 }

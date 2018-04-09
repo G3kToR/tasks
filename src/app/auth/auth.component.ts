@@ -46,7 +46,7 @@ export class AuthComponent {
                 if (data) {
                     this.onLogin.emit();
                     this.router.navigate(['']);
-                } else this.authForm.reset();
+                } else { this.authForm.reset(); }
             },
             () => this.connectErr = true
         );

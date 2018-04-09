@@ -18,7 +18,7 @@ export class TaskFormComponent implements OnInit {
 
     @Input() task: Task;
     @Output() onSubmitTask = new EventEmitter<boolean>();
-    public fullMode: boolean = false;
+    public fullMode = false;
     public taskForm: FormGroup;
 
     constructor(private taskService: TaskService, private router: Router) { }
@@ -51,10 +51,10 @@ export class TaskFormComponent implements OnInit {
             this.taskService.addData(
                 this.taskForm.value.taskName,
                 this.taskForm.value.taskDesk,
-                this.taskForm.value.taskPriority,
+                Number(this.taskForm.value.taskPriority),
                 plannedTime,
                 elapsedTime,
-                this.taskForm.value.taskStatus
+                Number(this.taskForm.value.taskStatus)
             );
 
             this.taskForm.reset({  // Сбрасываем форму
@@ -72,9 +72,9 @@ export class TaskFormComponent implements OnInit {
         let plannedTime: number[] = [0, 0];
         let elapsedTime: number[] = [0, 0];
 
-        if (this.task === undefined || this.task === null)
+        if (this.task === undefined || this.task === null) {
             this.task = new Task('', '', 0, 3, 0, 0, 1);
-        else {
+        } else {
             this.fullMode = true;
             plannedTime = [
                 Math.floor(this.task.plannedTime / 60),

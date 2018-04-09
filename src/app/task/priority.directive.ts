@@ -6,16 +6,14 @@ import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 })
 export class PriorityDirective implements OnInit {
 
-    @Input('app-priority') priority: string = '0';
+    @Input('app-priority') priority = 0;
 
-    constructor(private elementRef: ElementRef) {
-    }
+    constructor(private elementRef: ElementRef) { }
 
-    private getPriority(priority: string): string {
-        if (priority == '3') return 'green';
-        else if (priority == '2') return 'orange';
-        else if (priority == '1') return 'red';
-        else return '';
+    private getPriority(priority: number): string {
+        if (priority === 3) { return 'green'; } else
+            if (priority === 2) { return 'orange'; } else
+                if (priority === 1) { return 'red'; } else { return ''; }
     }
 
     ngOnInit(): void {

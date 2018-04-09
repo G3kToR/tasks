@@ -8,14 +8,14 @@ import { Task } from 'app/task';
 })
 export class TaskComponent {
 
-    constructor() { }
-
     @Input() task: Task;
 
+    constructor() { }
+
     getStatus(): string {
-        if (this.task.status == 1) return 'в ожидании';
-        if (this.task.status == 2) return 'в работе';
-        if (this.task.status == 3) return 'завершен';
+        if (this.task.status === 1) { return 'в ожидании'; } else
+            if (this.task.status === 2) { return 'в работе'; } else
+                if (this.task.status === 3) { return 'завершен'; }
     }
 
 }

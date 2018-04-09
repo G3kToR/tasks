@@ -10,17 +10,17 @@ import 'rxjs/add/observable/from';
 @Injectable()
 export class TaskService {
 
-    constructor(private http: HttpClient, private userService: UserService) { }
-
     private data: Task[];
+
+    constructor(private http: HttpClient, private userService: UserService) { }
 
     public getDataHttp(): Observable<boolean> {
 
-        if (this.data === undefined)
+        if (this.data === undefined) {
             return this.http.get('assets/data.json').map(data => {
-                if (data[this.userService.getUserId()] === undefined)
+                if (data[this.userService.getUserId()] === undefined) {
                     this.data = [];
-                else
+                } else {
                     this.data = data[this.userService.getUserId()].map(task => {
                         return new Task(
                             task.name,
@@ -33,9 +33,10 @@ export class TaskService {
                             task.id
                         );
                     });
+                }
                 return true;
             });
-        else return Observable.of(false);
+        } else { return Observable.of(false); }
 
     }
 
@@ -54,8 +55,7 @@ export class TaskService {
         plannedTime: number = 0,
         elapsedTime: number = 0,
         status: number
-    ): void
-    {
+    ): void {
         const result: Task = this.findTask(id);
         //if (result === null)
         result.plannedTime = plannedTime;
@@ -65,10 +65,10 @@ export class TaskService {
     }
 
     private findTask(id: number): Task {
-        if (this.data === undefined) return null;
+        if (this.data === undefined) { return null; }
         let result: Task;
-        for (let i = 0; i != this.data.length; i++) {
-            if (this.data[i].id == id) {
+        for (let i = 0; i !== this.data.length; i++) {
+            if (this.data[i].id === id) {
                 result = this.data[i];
                 break;
             }
@@ -84,8 +84,7 @@ export class TaskService {
         plannedTime: number = 0,
         elapsedTime: number = 0,
         status: number = 1
-    ): void
-    {
+    ): void {
         this.data.push(
             new Task(
                 name,

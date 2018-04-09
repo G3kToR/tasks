@@ -14,7 +14,7 @@ export class TaskPageComponent implements OnInit {
     public task: Task;
 
     constructor(private activateRoute: ActivatedRoute, private taskService: TaskService) {
-        this.id = activateRoute.snapshot.params['id']; // получаем ид задачи из url
+        this.id = Number(activateRoute.snapshot.params['id']); // получаем ид задачи из url
     }
 
     ngOnInit() {

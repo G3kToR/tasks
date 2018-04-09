@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class MainPageComponent {
 
-    public taskFormDisplay: boolean = false; // Флаг для показа/скрытия формы добавления таска
+    public taskFormDisplay = false; // Флаг для показа/скрытия формы добавления таска
 
     constructor() { }
 

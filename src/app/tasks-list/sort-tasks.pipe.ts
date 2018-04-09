@@ -12,23 +12,22 @@ export class SortTasksPipe implements PipeTransform {
 
         let result: Task[] = [];
 
-        if (array.length == 0) return result;
+        if (array.length === 0) { return result; }
 
-        if (type == 1) { // Сортировка по дате
+        if (type === 1) { // Сортировка по дате
 
             result = array;
             result.sort((a, b) => {
-                if (a.date > b.date) return 1;
-                if (a.date < b.date) return -1;
+                if (a.date > b.date) { return 1; }
+                if (a.date < b.date) { return -1; }
             });
-        }
-        else { // Сортировка по статусу или приоритету
+        } else { // Сортировка по статусу или приоритету
 
-            const key: string = (type == 2) ? 'status' : 'priority';
+            const key: string = (type === 2) ? 'status' : 'priority';
 
             for (let i = 1; i < 4; i++) {
                 result = result.concat(array.filter(item => {
-                    return item[key] == i;
+                    return item[key] === i;
                 }));
             }
         }
