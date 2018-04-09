@@ -13,9 +13,14 @@ export class TaskComponent {
     constructor() { }
 
     getStatus(): string {
-        if (this.task.status === 1) { return 'в ожидании'; } else
-            if (this.task.status === 2) { return 'в работе'; } else
-                if (this.task.status === 3) { return 'завершен'; }
+        switch (this.task.status) {
+            case 1:
+                return 'в ожидании';
+            case 2:
+                return 'в работе';
+            case 3:
+                return 'завершен';
+        }
     }
 
 }

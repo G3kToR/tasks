@@ -1,18 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from './user.service';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-    public auth: boolean; // Показывать форму автризации
+    constructor() { }
 
-    constructor(private userService: UserService) { }
-
-    ngOnInit(): void {
-        this.auth = this.userService.isLogin(); // Проверяет авторизирован ли пользователь
-    }
 }

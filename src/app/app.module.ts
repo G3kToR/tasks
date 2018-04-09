@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,18 +12,11 @@ import { PriorityDirective } from './task/priority.directive';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SortTasksPipe } from './tasks-list/sort-tasks.pipe';
-import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './pages/main-page.component';
 import { TaskPageComponent } from './pages/task-page.component';
 import { AuthComponent } from './auth/auth.component';
 import { UserService } from './user.service';
 
-// Определение маршрутов
-const appRoutes: Routes = [
-    { path: '', component: MainPageComponent },
-    { path: 'task/:id', component: TaskPageComponent },
-    { path: '**', redirectTo: '/' },
-];
 
 @NgModule({
     declarations: [
@@ -43,7 +36,6 @@ const appRoutes: Routes = [
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes),
     ],
     providers: [ TaskService, UserService ],
     bootstrap: [ AppComponent ],

@@ -10,10 +10,18 @@ export class PriorityDirective implements OnInit {
 
     constructor(private elementRef: ElementRef) { }
 
+
     private getPriority(priority: number): string {
-        if (priority === 3) { return 'green'; } else
-            if (priority === 2) { return 'orange'; } else
-                if (priority === 1) { return 'red'; } else { return ''; }
+        switch (priority) {
+            case 1:
+                return 'red';
+            case 2:
+                return 'orange';
+            case 3:
+                return 'green';
+            default:
+                return '';
+        }
     }
 
     ngOnInit(): void {

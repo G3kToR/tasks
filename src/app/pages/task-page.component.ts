@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {TaskService} from '../task.service';
-import {Task} from '../task';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Task } from '../task';
 import 'rxjs/add/operator/take';
 
 @Component({
@@ -13,12 +12,12 @@ export class TaskPageComponent implements OnInit {
     public id: number;
     public task: Task;
 
-    constructor(private activateRoute: ActivatedRoute, private taskService: TaskService) {
-        this.id = Number(activateRoute.snapshot.params['id']); // получаем ид задачи из url
-    }
+    constructor(private activateRoute: ActivatedRoute) { }
 
     ngOnInit() {
-        this.task = this.taskService.getTask(this.id); // Получаем инфу о задаче по ид
+        this.activateRoute.data.subscribe(data => {
+            this.task = data.task;
+        });
     }
 
 }
